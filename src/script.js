@@ -51,55 +51,68 @@ setInterval(() => {
 
 setTimeout(() => {
     if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            function (position) {
-                const messegeElement = document.getElementById('messege');
-                const tempElement = document.getElementById('temp');
-                const icon = document.getElementById('icon');
-                const lat = position.coords.latitude;
-                const lot = position.coords.longitude;
-                const key = 'd67d60faba6f78becf87f31a5efd9ad0';
-
-                const BASE_URL =`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lot}&appid=${key}&units=metric`
-                
-                fetch(BASE_URL)
-                .then(response => response.json())
-                .then(data => {
-                    let weather = data.weather[0].main
-                    let temp = data.main.temp;
-                    let iconCode = data.weather[0].icon;
-                    let formatIcon = `https://openweathermap.org/img/wn/${iconCode}.png`;
-                    messegeElement.innerText = weather;
-                    icon.src = formatIcon;
-                    tempElement.innerText = `${temp.toFixed(0)}°C`;
-                })
-                .catch(err => {
-                    messegeElement.innerText = `Gagal mengambil data cuaca`;
-                });
-
-            },
-            function (error) {
-                const messegeElement = document.getElementById('messege');
-                messegeElement.innerText = `Gagal mendapatkan data cuaca.`;
-                setTimeout(() => {
-                    messegeElement.innerText = '';
-                }, 2000);
-            }
-        )
+        function getData() {
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    const messegeElement = document.getElementById('messege');
+                    const tempElement = document.getElementById('temp');
+                    const icon = document.getElementById('icon');
+                    const lat = position.coords.latitude;
+                    const lot = position.coords.longitude;
+                    const key = 'd67d60faba6f78becf87f31a5efd9ad0';
+    
+                    const BASE_URL =`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lot}&appid=${key}&units=metric`
+                    
+                    fetch(BASE_URL)
+                    .then(response => response.json())
+                    .then(data => {
+                        let weather = data.weather[0].main
+                        let temp = data.main.temp;
+                        let iconCode = data.weather[0].icon;
+                        let formatIcon = `https://openweathermap.org/img/wn/${iconCode}.png`;
+                        messegeElement.innerText = weather;
+                        icon.src = formatIcon;
+                        tempElement.innerText = `${temp.toFixed(0)}°C`;
+                    })
+                    .catch(err => {
+                        messegeElement.innerText = `Gagal mengambil data cuaca`;
+                    });
+    
+                },
+                function (error) {
+                    const messegeElement = document.getElementById('messege');
+                    messegeElement.innerText = `Gagal mendapatkan data cuaca.`;
+                    setTimeout(() => {
+                        messegeElement.innerText = '';
+                    }, 2000);
+                }
+            )
+        }
     }else {
         const messegeElement = document.getElementById('messege');
         messegeElement.innerText = `Browser tidak mendukung Geolocation`;
     }
+
+    getData();
+    setInterval(getData, 300000);
+
 }, 1000);
 
 
 console.log(
-`
-⚡
+`⚡
 ⚡⚡
+⚡⚡⚡
 Welcome to my website bro 🙂‍↕️
-thank you for visiting my website 😁
-✦ Don't forget to follow my github(Nurrizzky) ✦
+Thank you for visiting my website 😁
+✦
+Let's connect with each other on linkedin:
+https://www.linkedin.com/in/muhammad-nur-rizky/
+Don't forget to also follow my github:
+https://github.com/Nurrizzky
+✦
+Have a nice day 😃
+⚡⚡⚡
 ⚡⚡
 ⚡
 `);
