@@ -22,6 +22,22 @@ setTimeout(() => {
 
 
 
+
+setInterval(() => {
+    const date = new Date();
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const second = String(date.getSeconds()).padStart(2, '0');
+    
+    const formated = `${hours} : ${minutes} : ${second} `;
+    
+    const text = document.getElementById('time');
+    const result = text.innerText = formated;
+    
+    return result;
+    
+}, 1000);
+
 setTimeout(()=> {
     setInterval(() => {
         const date = new Date();
@@ -32,22 +48,6 @@ setTimeout(()=> {
         return result;
     }, 1);
 }, 1000);
-
-setInterval(() => {
-    const date = new Date();
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    const second = String(date.getSeconds()).padStart(2, '0');
-
-    const formated = `${hours} : ${minutes} : ${second} `;
-
-    const text = document.getElementById('time');
-    const result = text.innerText = formated;
-
-    return result;
-
-}, 1000);
-
 
 setTimeout(() => {
     if(navigator.geolocation) {
@@ -111,7 +111,7 @@ https://www.linkedin.com/in/muhammad-nur-rizky/
 Don't forget to also follow my github:
 https://github.com/Nurrizzky
 ✦
-Have a nice day 😃
+Have a nice day 😉
 ⚡⚡⚡
 ⚡⚡
 ⚡
