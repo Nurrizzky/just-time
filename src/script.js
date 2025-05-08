@@ -39,7 +39,7 @@ setInterval(() => {
     const minutes = String(date.getMinutes()).padStart(2, '0');
     const second = String(date.getSeconds()).padStart(2, '0');
 
-    const formated = `${hours} : ${minutes} : ${second}`;
+    const formated = `${hours}:${minutes}:${second}`;
 
     const text = document.getElementById('time');
     const result = text.innerText = formated;
