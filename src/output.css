@@ -528,6 +528,16 @@
       position: absolute;
     }
   }
+  .max-lg\:-right-0 {
+    @media (width < 64rem) {
+      right: calc(var(--spacing) * -0);
+    }
+  }
+  .max-lg\:-right-1 {
+    @media (width < 64rem) {
+      right: calc(var(--spacing) * -1);
+    }
+  }
   .max-lg\:-right-7 {
     @media (width < 64rem) {
       right: calc(var(--spacing) * -7);
@@ -601,6 +611,16 @@
   .max-lg\:text-\[74px\] {
     @media (width < 64rem) {
       font-size: 74px;
+    }
+  }
+  .max-lg\:text-\[80px\] {
+    @media (width < 64rem) {
+      font-size: 80px;
+    }
+  }
+  .max-lg\:text-\[80\] {
+    @media (width < 64rem) {
+      color: 80;
     }
   }
   .max-lg\:text-\[px\] {
