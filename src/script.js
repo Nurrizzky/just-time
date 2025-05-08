@@ -91,3 +91,15 @@ setTimeout(() => {
         messegeElement.innerText = `Browser tidak mendukung Geolocation`;
     }
 }, 1000);
+
+
+console.log(
+`
+⚡
+⚡⚡
+Welcome to my website bro 🙂‍↕️
+thank you for visiting my website 😁
+✦ Don't forget to follow my github(Nurrizzky) ✦
+⚡⚡
+⚡
+`);
