@@ -47,3 +47,76 @@ setInterval(() => {
     return result;
 
 }, 1000);
+
+
+setTimeout(() => {
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                const messegeElement = document.getElementById('messege');
+                const tempElement = document.getElementById('temp');
+                const weatherData = document.getElementById('weather-info');
+                const icon = document.getElementById('icon');
+                const lat = position.coords.latitude;
+                const lot = position.coords.longitude;
+                const key = 'd67d60faba6f78becf87f31a5efd9ad0';
+
+                const BASE_URL =`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lot}&appid=${key}&units=metric`
+                
+                fetch(BASE_URL)
+                .then(response => response.json())
+                .then(data => {
+                    let weather = data.weather[0].main
+                    let temp = data.main.temp;
+                    let iconCode = data.weather[0].icon;
+                    let formatIcon = `http://openweathermap.org/img/wn/${iconCode}.png`;
+                    messegeElement.innerText = weather;
+                    icon.src = formatIcon;
+                    // switch (weather) {
+                    //     case 'Clear':
+                    //         icon.src = './src/img/clear.png';
+                    //         break;
+                    //     case 'Clouds':
+                    //         icon.src = formatIcon;
+                    //         break;
+                    //     case 'Rain':
+                    //         icon.src = './src/img/rain.png';
+                    //         break;
+                    //     case 'Snow':
+                    //         icon.src = './src/img/snow.png';
+                    //         break;
+                    //     case 'Thunderstrom':
+                    //         icon.src = './src/img/strom.png';
+                    //         break;
+                    //     case 'Drizzle':
+                    //         icon.src = './src/img/drizzle.png';
+                    //         break;
+                    //     case 'Mist':
+                    //     case 'Haze':
+                    //     case 'Fog':
+                    //         icon.src = './src/img/mist.png';
+                    //         break;
+                    //     default:
+                    //         icon.src = ''
+                    //         break;
+                    // }
+                    tempElement.innerText = `${temp.toFixed(0)}°C`;
+                })
+                .catch(err => {
+                    messegeElement.innerText = `Gagal mengambil data cuaca`;
+                });
+
+            },
+            function (error) {
+                const messegeElement = document.getElementById('messege');
+                messegeElement.innerText = `Gagal mendapatkan data cuaca.`;
+                setTimeout(() => {
+                    messegeElement.innerText = '';
+                }, 2000);
+            }
+        )
+    }else {
+        const messegeElement = document.getElementById('messege');
+        messegeElement.innerText = `Browser tidak mendukung Geolocation`;
+    }
+}, 1000);

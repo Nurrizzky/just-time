@@ -9,9 +9,9 @@
 </head>
 <body class="bg-[#111] font-space-grotesk">
     
-    <div class="text-white w-full h-screen flex items-center justify-center" id="parent">
+    <div class="text-white w-full h-[100svh] flex items-center justify-center" id="parent">
 
-        <div class="w-1/2 h-1/2 flex flex-col items-center justify-center">
+        <div class="w-1/2 h-1/2 flex flex-col gap-y-2 items-center justify-center">
 
             <div class="w-1/2 max-md:w-full max-md:justify-center flex gap-x-3 items-center relative">
                 <div class="flex gap-x-3">
@@ -22,39 +22,18 @@
                     <h1 id="year" class="text-lg max-lg:text-lg max-md:text-sm"></h1>
                 </div>
             </div>
-
-            <div class="w-1/2 max-md:w-full max-md:justify-center flex items-end">
-                <h1 id="time" class="max-sm:text-nowrap text-5xl 2xl:text-7xl max-xl:text-5xl max-lg:text-4xl max-md:text-6xl max-sm:text-3xl">Loading..</h1>
+            
+            <div class="w-1/2 max-md:w-full justify-center flex items-end">
+                <h1 id="time" class="max-sm:text-nowrap text-5xl 2xl:text-7xl max-xl:text-5xl max-lg:text-4xl max-md:text-6xl max-sm:text-5xl">Loading..</h1>
                 <p id="millisecond" class="w-3 text-sm max-sm:text-xs max-md:ml-1 mb-1 text-white/50"></p>
             </div>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- <div class="flex flex-column w-full relative items-center justify-center">
-            <div class="flex relative">
-                <div class="w-full flex justify-between absolute -top-5 left-0">
-                    <div class="flex gap-x-1.5 items-center">
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="flex relative">
-                
             
+            <div class="w-1/2 flex items-center gap-x-2 justify-end max-md:justify-center" id="weather-info">
+                <h1 id="messege" class="max-md:text-sm"></h1>
+                <img src="" id="icon" class="max-md:text-sm w-[30px]">
+                <h1 id="temp" class="max-md:text-sm"></h1>
             </div>
-        </div> -->
+        </div>
 
     </div>
 
