@@ -310,6 +310,11 @@
       line-height: var(--tw-leading, var(--text-6xl--line-height));
     }
   }
+  .max-lg\:absolute {
+    @media (width < 64rem) {
+      position: absolute;
+    }
+  }
   .max-lg\:-right-7 {
     @media (width < 64rem) {
       right: calc(var(--spacing) * -7);
@@ -335,6 +340,11 @@
     @media (width < 64rem) {
       font-size: var(--text-lg);
       line-height: var(--tw-leading, var(--text-lg--line-height));
+    }
+  }
+  .max-md\:absolute {
+    @media (width < 48rem) {
+      position: absolute;
     }
   }
   .max-md\:-right-0 {
