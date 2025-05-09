@@ -57,6 +57,7 @@ setTimeout(() => {
                     const messegeElement = document.getElementById('messege');
                     const tempElement = document.getElementById('temp');
                     const icon = document.getElementById('icon');
+                    const cityElement = document.getElementById('city');
                     const lat = position.coords.latitude;
                     const lot = position.coords.longitude;
                     const key = 'd67d60faba6f78becf87f31a5efd9ad0';
@@ -73,7 +74,7 @@ setTimeout(() => {
                         messegeElement.innerText = weather;
                         icon.src = formatIcon;
                         tempElement.innerText = `${temp.toFixed(0)}°C`;
-                        // tempElement.innerText = `${Math.floor(temp)}°C`;
+                        cityElement.innerText = data.name;
                     })
                     .catch(err => {
                         messegeElement.innerText = `Gagal mengambil data cuaca`;
