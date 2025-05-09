@@ -73,6 +73,7 @@ setTimeout(() => {
                         messegeElement.innerText = weather;
                         icon.src = formatIcon;
                         tempElement.innerText = `${temp.toFixed(0)}°C`;
+                        // tempElement.innerText = `${Math.floor(temp)}°C`;
                     })
                     .catch(err => {
                         messegeElement.innerText = `Gagal mengambil data cuaca`;
