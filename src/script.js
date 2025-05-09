@@ -58,6 +58,9 @@ setTimeout(() => {
                     const tempElement = document.getElementById('temp');
                     const icon = document.getElementById('icon');
                     const cityElement = document.getElementById('city');
+                    const stripElement = document.getElementById('strip');
+                    stripElement.classList.remove('hidden');
+
                     const lat = position.coords.latitude;
                     const lot = position.coords.longitude;
                     const key = 'd67d60faba6f78becf87f31a5efd9ad0';
@@ -82,11 +85,11 @@ setTimeout(() => {
     
                 },
                 function (error) {
-                    const messegeElement = document.getElementById('messege');
-                    messegeElement.innerText = `Gagal mendapatkan data cuaca.`;
+                    const messege = document.getElementById('cant-get-location');
+                    messege.innerText = `Tidak dapat mengambil lokasi user....`;
                     setTimeout(() => {
-                        messegeElement.innerText = '';
-                    }, 2000);
+                        messege.classList.add('hidden');
+                    }, 3000);
                 }
             )
         }
@@ -99,7 +102,6 @@ setTimeout(() => {
     setInterval(getData, 300000);
 
 }, 1000);
-
 
 console.log(
 `⚡
